@@ -1,0 +1,2 @@
+﻿<div class="alert" [ngClass]="{ 'active': active, 'alert-success': message && message.type === 'success', 'alert-danger': message && message.type === 'error' }">{{message?.text}}
+    <i class="glyphicon glyphicon-remove" (click)="close()"></i></div>

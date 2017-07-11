@@ -1,0 +1,20 @@
+<div class="col-xs-12">
+    <h1>Hej, {{currentUser.firstName}}!</h1>
+    <p><a [routerLink]="['users/new']" class="btn btn-primary">Dodaj</a></p>
+    <p>Lista użytkowników:</p>
+    <div class="row" *ngFor="let user of users">
+        <div class="card card-block">
+            <h2 class="card-title">{{ user.login }}</h2>
+            <div class="row">
+                <div class="col-xs-4 card-text">{{ user.firstName }}</div>
+                <div class="col-xs-5 card-text">{{ user.lastName }}</div>
+                <div class="col-xs-3">
+                    <button class="btn btn-default" [routerLink]="['users', user._id]">Edytuj</button>
+                    <button class="btn btn-danger" (click)="deleteUser(user._id)">Usuń</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p><a [routerLink]="['/login']">Wyloguj</a></p>
+</div>

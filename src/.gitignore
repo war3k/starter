@@ -56,6 +56,6 @@ typings/
 
 # dotenv environment variables file
 .env
+
 #Angular-cli dist catalog
 dist
-

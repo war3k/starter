@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-md-12">
+        <h2 *ngIf="!edit">Dodaj użytkownika</h2>
+        <h2 *ngIf="edit">Edytuj użytkownika</h2>
+        <form name="form" (ngSubmit)="f.form.valid && submitForm()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="login">Imię</label>
+                <input type="text" class="form-control" placeholder="Imię" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" required>
+                <div *ngIf="f.submitted && !firstName.valid" class="help-block">Imię jest wymagane!</div>
+            </div>
+            <div class="form-group">
+                <label for="login">Nazwisko</label>
+                <input type="text" class="form-control" placeholder="Nazwisko" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" required>
+                <div *ngIf="f.submitted && !lastName.valid" class="help-block">Nazwisko jest wymagane!</div>
+            </div>
+            <div class="form-group">
+                <label for="login">Login</label>
+                <input type="text" class="form-control" placeholder="Login" name="login" [(ngModel)]="model.username" #login="ngModel" required>
+                <div *ngIf="f.submitted && !login.valid" class="help-block">Login jest wymagany!</div>
+            </div>
+            <div *ngIf="!edit" class="form-group">
+                <label for="email">Hasło</label>
+                <input type="password" class="form-control" placeholder="Hasło" name="password" [(ngModel)]="model.password" #password="ngModel" required pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+                <div *ngIf="f.submitted && !password.valid" class="help-block">Hasło musi mieć co najmniej 8 znaków, małe, wielkie litery oraz conajmniej jedną cyfrę!</div>
+            </div>
+            <button *ngIf="edit" class="btn btn-primary">Zapisz</button>
+            <button *ngIf="!edit" class="btn btn-primary">Dodaj</button>
+            <a [routerLink]="['/']" class="btn btn-link">Wróć</a>
+        </form>
+    </div>
+</div>

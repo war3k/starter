@@ -1,0 +1,14 @@
+.alert {
+    top: -4rem;
+    right: 3%;
+    transition: top 1s;
+    -webkit-transition: top 1s;
+    position: fixed;
+    &.active {
+        top: 1rem;
+        height: 3.5rem;
+        transition: top 1s;
+        -webkit-transition: top 1s;
+        position: fixed;
+    }
+}
